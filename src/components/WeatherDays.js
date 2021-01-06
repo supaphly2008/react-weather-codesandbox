@@ -25,6 +25,15 @@ const DayName = styled.h3`
   text-transform: uppercase;
 `;
 
+const RainPercentP = styled.p`
+  font-size: 14px;
+  margin-bottom: 12px;
+`;
+
+const IconImage = styled.img`
+  width: 70%;
+`;
+
 const WeatherDays = (props) => {
   const { weatherDays } = props;
   // get array of weathers in days
@@ -36,10 +45,14 @@ const WeatherDays = (props) => {
         weatherDays.list.map((day, index) => (
           <DayCardWrapper key={index}>
             <DayName>{getDayNames(day.dt)}</DayName>
-            <img
+            <IconImage
               alt="icon"
               src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
             />
+            <RainPercentP>
+              {day.pop * 100}
+              {"\u0025"}
+            </RainPercentP>
             <p>
               {roundOffWeather(day.temp.max)}
               {"\u00b0"} / {roundOffWeather(day.temp.min)}

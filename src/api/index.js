@@ -19,6 +19,12 @@ export const getDaysWeatherByCityName = (
 };
 
 // search by coord
+export const oneCallWeatherByCoord = (lon, lat, units = "metric") => {
+  return axios.get(
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${lon}&lon=${lat}&units=${units}&exclude=minutely&appid=${OPEN_WEATHER_API_KEY}`
+  );
+};
+
 export const getWeatherByCoord = (lon, lat, units = "metric") => {
   return axios.get(
     `weather?lat=${lat}&lon=${lon}&units=${units}&appid=${OPEN_WEATHER_API_KEY}`

@@ -32,7 +32,7 @@ export default function App() {
     getGeoLocation().then((res) => {
       const { longitude, latitude } = res.coords;
       // get weather by coord
-      // get 5 days weather by coord
+      // get 7 days weather by coord
       Promise.all([
         getWeatherByCoord(longitude, latitude),
         getDaysWeatherByCoord(longitude, latitude, 7)
